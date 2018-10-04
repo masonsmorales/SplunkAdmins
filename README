@@ -150,7 +150,9 @@ Feel free to open an issue on github or use the contact author on the SplunkBase
 Release Notes
 ****************
 2.4.4
+New report - SearchHeadLevel - Users with auto-finalized searches
 New report - What Access Do I Have Without REST? To work without the dispatch_rest_to_indexers
+Updated dashboard Troubleshooting indexer CPU as sort was not working
 Updated report - What Access Do I Have? to use splunk_server=local
 
 2.4.3
