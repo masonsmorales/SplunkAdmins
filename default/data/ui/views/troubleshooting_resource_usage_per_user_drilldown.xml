@@ -1,7 +1,8 @@
+
 <form>
   <label>Troubleshooting Resource Usage Per User Drilldown</label>
   <description>Drilldown for Troubleshooting Resource Usage Per User</description>
-  <fieldset submitButton="false" autoRun="true">
+  <fieldset submitButton="true" autoRun="false">
     <input type="text" token="sid">
       <label>sid</label>
     </input>
