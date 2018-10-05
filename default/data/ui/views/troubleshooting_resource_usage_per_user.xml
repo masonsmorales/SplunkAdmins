@@ -1,7 +1,7 @@
 <form>
-  <label>Troubleshooting Resource Usage Per User</label>
+  <label>Dashboard - Troubleshooting Resource Usage Per User</label>
   <description>This dashboard attempts to assist with finding which queries are using excessive amounts of CPU, memory, disk IOPS at the indexing tier and the queries behind them</description>
-  <fieldset submitButton="false">
+  <fieldset submitButton="true" autoRun="false">
     <input type="time" token="time">
       <label></label>
       <default>
@@ -12,7 +12,7 @@
     <input type="radio" token="exclusion">
       <label>Exclude system users?</label>
       <choice value="&quot;data.search_props.user&quot;!=admin &quot;data.search_props.user&quot;!=splunk-system-user">Yes</choice>
-      <choice value="">No</choice>
+      <choice value="&quot;&quot;">No</choice>
       <default>"data.search_props.user"!=admin "data.search_props.user"!=splunk-system-user</default>
       <initialValue>"data.search_props.user"!=admin "data.search_props.user"!=splunk-system-user</initialValue>
     </input>
@@ -60,6 +60,7 @@
 | search $filter$
 | rex field=sid "^remote_[^_]+_(?P&lt;sid&gt;.*)"
 | eval sid = "'" . sid . "'"
+| fillnull search_head value="N/A"
 | stats max(elapsed) as runtime max(mem_used) as mem_used earliest(_time) as searchStartTime, sum(cpuperc) AS totalCPU, avg(cpuperc) AS avgCPU, max(read_mb) AS read_mb, values(sid) AS sids by type, mode, app, user, label, host, search_head, data.pid
 | bin searchStartTime span=$timespan$
 | stats dc(sids) AS count, sum(totalCPU) AS totalCPU, sum(mem_used) AS totalMemUsed, max(runtime) AS maxRunTime, avg(runtime) AS avgRuntime, avg(avgCPU) AS avgCPUPerIndexer, sum(read_mb) AS totalReadMB, values(sids) AS sids by searchStartTime, type, mode, app, user, search_head, label

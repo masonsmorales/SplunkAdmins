@@ -1,7 +1,7 @@
 
 <form>
   <label>Troubleshooting Resource Usage Per User Drilldown</label>
-  <description>Drilldown for Troubleshooting Resource Usage Per User</description>
+  <description>Drilldown for Troubleshooting Resource Usage Per User (Splunk 6.6+ only due to the use of the IN keyword)</description>
   <fieldset submitButton="true" autoRun="false">
     <input type="text" token="sid">
       <label>sid</label>
