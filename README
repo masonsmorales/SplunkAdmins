@@ -154,8 +154,12 @@ New dashboard - Troubleshooting Resource Usage Per User
 New dashboard - Troubleshooting Resource Usage Per User Drilldown
 New report - SearchHeadLevel - Users with auto-finalized searches
 New report - What Access Do I Have Without REST? To work without the dispatch_rest_to_indexers
-Updated alert AllSplunkEnterpriseLevel - Email Sending Failures - to make it easier to automate
+Updated alert - AllSplunkEnterpriseLevel - Email Sending Failures - to make it easier to automate
+Updated alert - SearchHeadLevel - Captain Switchover Occurring - to ignore a harmless warning message (NOT_LEADER)
+Updated alert - SearchHeadLevel - Scheduled searches not specifying an index macro version - to use an improved macro match
+Updated alert - SearchHeadLevel - User - Dashboards searching all indexes macro version - to use an improved macro match
 Updated dashboard Troubleshooting indexer CPU as sort was not working
+Updated report - SearchHeadLevel - Macro report - to use splunk_server=local
 Updated report - What Access Do I Have? to use splunk_server=local
 
 2.4.3
